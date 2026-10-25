@@ -12,3 +12,30 @@ h1 {
 h2 {
     color: #394867;
 }
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.goal-card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #e2e5ed;
+    border-radius: 12px;
+    max-width: 350px;
+}
+
+.progress-bar {
+    background-color: #e9eaf0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: #6654b8;
+    width: 0%;
+    height: 100%;
+}
