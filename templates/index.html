@@ -7,45 +7,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <main class="dashboard-container">
-    <h1>Life Hub V.1</h1>
-    <p>Building a better way to organize my goals and my life.</p>
+     <main class="dashboard-container">
 
-    <h2>My Goals</h2>
+        <h1>Life Hub V.1</h1>
 
-    <div class="goals-grid">
+        <p>Building a better way to organize my goals and my life.</p>
 
-    <div class="goal-card">
-        <h3>Complete My Networking Degree</h3>
-        <p>Education & Career Development</p>
-        <p>Progress: 0%</p>
+        <h2>My Goals</h2>
 
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
+        <div class="goals-grid">
+            {% for goal in goals %}
+                <div class="goal-card">
+                    <h3>{{ goal["title"] }}</h3>
+
+                    <p>{{ goal["category"] }}</p>
+
+                        <p>Progress: {{ goal["progress_percent"] }}%</p>
+
+                            <div class="progress-bar">
+                                    <div
+                                        class="progress-fill"
+                                        style="width: {{ goal['progress_percent'] }}%;">
+                                    </div>
+                                </div>
+                </div>
+                
+            {% endfor %}
         </div>
-    </div>
-
-    <div class="goal-card">
-    <h3>Develop PowerShell Skills</h3>
-    <p>Professional Development</p>
-    <p>Progress: 35%</p>
-
-    <div class="progress-bar">
-        <div class="progress-fill" style="width: 35%;"></div>
-    </div>
-
-</div>
-
-<div class="goal-card">
-    <h3>Launch Milestone Document Services</h3>
-    <p>Entrepreneurship</p>
-    <p>Progress: 20%</p>
-
-    <div class="progress-bar">
-        <div class="progress-fill" style="width: 20%;"></div>
-    </div>
-</div>
-
-</main>
+    </main>
 </body>
 </html>
