@@ -34,7 +34,7 @@ def get_goals():
     LEFT JOIN objectives AS o
         ON o.milestone_id = m.id
     LEFT JOIN actions AS a
-        ON a.objective_id = o.id
+        ON a.objective_id = git stato.id
     GROUP BY g.id, g.title, g.category, g.description
     ORDER BY g.id
 """).fetchall()
@@ -49,3 +49,7 @@ def home():
     goals = get_goals()
     print(f"Loaded {len(goals)} goals from SQLite")
     return render_template("index.html", goals=goals)
+
+@app.route("/goals/new")
+def new_goal():
+    return render_template("new_goal.html")
