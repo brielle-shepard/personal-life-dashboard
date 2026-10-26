@@ -15,7 +15,6 @@ As of this writing the features currently implemented are the following:
 - Four-level goal hierarchy.
 - Automatically calculated progress percentages.
 - Dynamic HTML generation through Flask and Jinja.
-- Repeatable demonstration-data seeding
 
 ### Technology Stack
 - Python
@@ -24,7 +23,6 @@ As of this writing the features currently implemented are the following:
 - HTML
 - CSS
 - Git
-- GitHub
 - PowerShell
 
 ### Installation and Setup
@@ -174,19 +172,19 @@ Advanced planning and task-management integration
 - Specifically through the use of TickTick and Google Calendar
 
 - STATUS: Planned/ Not Started
-
-#### Phase 5
+<!--
+#### Phase ?
 Personal AI Ecosystem
 - STATUS: Planned/ Not Started
-
-#### Phase 6
+-->
+#### Phase 5
 Azure deployment, authentication, additional modules
 - STATUS: Planned/ Not Started
-
+<!--
 #### Phase 7
 Personal Finances
 - STATUS: Planned/ Not Started
-
+-->
 ### Learning Objectives
 I am building proficiency through hands-on experimentation while building myself a tool that will hopefully serve to assist me with task and time management for years to come. I expect that this will be something I will come back to over and over again to both maintain and improve upon as time goes by and as I get a better feel for the functionality and usage I want to get out of it (and potentially what lessons I'd like to learn while doing so).
 Right now I'm hoping to bolster skills in programming, scripting, database creation and management, version control, working with APIs, Azure deployment and automation. Below are the learning areas I am currently developing through this project.
