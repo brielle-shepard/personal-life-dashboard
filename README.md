@@ -15,7 +15,6 @@ As of this writing the features currently implemented are the following:
 - Four-level goal hierarchy.
 - Automatically calculated progress percentages.
 - Dynamic HTML generation through Flask and Jinja.
-- Repeatable demonstration-data seeding
 
 ### Technology Stack
 - Python
@@ -24,7 +23,6 @@ As of this writing the features currently implemented are the following:
 - HTML
 - CSS
 - Git
-- GitHub
 - PowerShell
 
 ### Installation and Setup
