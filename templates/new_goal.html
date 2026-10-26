@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Goal | Life Hub</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="dashboard-container">
+        <h1>Create New Goal</h1>
+
+        <form>
+            <p>
+                <label for="title">Goal title (required)</label><br>
+                <input type="text" id="title" name="title" required>
+            </p>
+
+            <p>
+                <label for="category">Category</label><br>
+                <input type="text" id="category" name="category">
+            </p>
+
+            <p>
+                <label for="description">Description</label><br>
+                <textarea id="description"
+                          name="description"
+                          rows="4"></textarea>
+            </p>
+
+            <button type="submit" disabled>Save Goal</button>
+        </form>
+
+        <p><a href="{{ url_for('home') }}">Back to dashboard</a></p>
+    </main>
+</body>
+</html>
