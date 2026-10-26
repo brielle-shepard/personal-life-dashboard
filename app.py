@@ -1,12 +1,22 @@
 import sqlite3
 from pathlib import Path
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "planner.db"
 
+GOAL_CATEGORIES = [
+    "Professional Development",
+    "Education",
+    "Health & Wellness",
+    "Financial",
+    "Auto Care and Maintenance",
+    "Personal Development",
+    "Relationships",
+    "Home & Lifestyle",
+]
 
 def get_goals():
     connection = sqlite3.connect(DB_PATH)
@@ -43,6 +53,23 @@ def get_goals():
     finally:
         connection.close()
 
+def create_goal(title, category, description):
+    connection = sqlite3.connect(DB_PATH)
+
+    try:
+        connection.execute("PRAGMA foreign_keys = ON")
+
+        connection.execute(
+            """
+            INSERT INTO goals (title, category, description)
+            VALUES (?, ?, ?)
+            """,
+            (title, category, description)
+        )
+
+        connection.commit()
+    finally:
+        connection.close()
 
 @app.route("/")
 def home():
@@ -56,10 +83,19 @@ def new_goal():
 
     if request.method == "POST":
         title = request.form.get("title", "").strip()
+        category = request.form.get("category", "").strip()
+        description = request.form.get("description", "").strip()
 
         if not title:
             message = "Please enter a goal title."
+        elif category not in GOAL_CATEGORIES:
+            message = "Please select a valid category."
         else:
-            message = f'Received goal: "{title}". Nothing saved yet.'
+            create_goal(title, category, description)
+            return redirect(url_for("home"))
 
-    return render_template("new_goal.html", message=message)
+    return render_template(
+        "new_goal.html",
+        message=message,
+        categories=GOAL_CATEGORIES
+    )
