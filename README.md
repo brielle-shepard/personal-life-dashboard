@@ -138,7 +138,14 @@ A goal with no actions currently displays 0%.
 ### Planned Feature: AI Integration
 
 Eventually, Life Hub will include an AI assistant
-that can help organize goals and tasks.
+that can help organize goals and tasks. 
+
+This section is still under development.
+-->
+<!--
+### Planned Feature: Fitness & Wellness Tracking
+
+Eventually, Life Hub will include a centralized place to view fitness data from multiple apps
 
 This section is still under development.
 -->
