@@ -10,8 +10,10 @@
 <body>
     <main class="dashboard-container">
         <h1>Create New Goal</h1>
-
-        <form>
+            {% if message %}
+            <p class="form-message" role="status">{{ message }}</p>
+            {% endif %}
+        <form method="post" action="{{ url_for('new_goal') }}">
             <p>
                 <label for="title">Goal title (required)</label><br>
                 <input type="text" id="title" name="title" required>
@@ -29,7 +31,7 @@
                           rows="4"></textarea>
             </p>
 
-            <button type="submit" disabled>Save Goal</button>
+            <button type="submit">Save Goal</button>
         </form>
 
         <p><a href="{{ url_for('home') }}">Back to dashboard</a></p>

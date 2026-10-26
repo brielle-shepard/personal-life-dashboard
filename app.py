@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ def get_goals():
     LEFT JOIN objectives AS o
         ON o.milestone_id = m.id
     LEFT JOIN actions AS a
-        ON a.objective_id = git stato.id
+        ON a.objective_id = o.id
     GROUP BY g.id, g.title, g.category, g.description
     ORDER BY g.id
 """).fetchall()
@@ -50,6 +50,16 @@ def home():
     print(f"Loaded {len(goals)} goals from SQLite")
     return render_template("index.html", goals=goals)
 
-@app.route("/goals/new")
+@app.route("/goals/new", methods=["GET", "POST"])
 def new_goal():
-    return render_template("new_goal.html")
+    message = None
+
+    if request.method == "POST":
+        title = request.form.get("title", "").strip()
+
+        if not title:
+            message = "Please enter a goal title."
+        else:
+            message = f'Received goal: "{title}". Nothing saved yet.'
+
+    return render_template("new_goal.html", message=message)
